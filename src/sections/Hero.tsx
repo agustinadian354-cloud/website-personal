@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
+import clsx from 'clsx'
 import { Container } from '../design-system/Container'
 import { VideoBackground } from '../components/VideoBackground'
 import { GrainOverlay } from '../components/GrainOverlay'
@@ -8,7 +9,12 @@ import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion'
 
 const EASE_PREMIUM = [0.16, 1, 0.3, 1] as const
 
-export function Hero() {
+interface HeroProps {
+  /** True when the fixed WebGL Scene3D behind the page is active — swaps the flat video for a transparent scrim so the 3D set shows through. */
+  use3D: boolean
+}
+
+export function Hero({ use3D }: HeroProps) {
   const ref = useRef<HTMLElement>(null)
   const reducedMotion = usePrefersReducedMotion()
   const { scrollYProgress } = useScroll({
@@ -24,11 +30,21 @@ export function Hero() {
     <section
       ref={ref}
       id="top"
-      className="relative flex min-h-[100svh] items-center overflow-hidden bg-bg"
+      className={clsx(
+        'relative flex min-h-[100svh] items-center overflow-hidden',
+        !use3D && 'bg-bg',
+      )}
     >
-      <motion.div style={{ y: bgY }} className="absolute inset-0">
-        <VideoBackground src="/media/reel.mp4" />
-      </motion.div>
+      {use3D ? (
+        <div
+          className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[var(--color-bg)] via-[var(--color-bg)]/55 to-transparent"
+          aria-hidden="true"
+        />
+      ) : (
+        <motion.div style={{ y: bgY }} className="absolute inset-0">
+          <VideoBackground src="/media/reel.mp4" />
+        </motion.div>
+      )}
       <GrainOverlay />
 
       <motion.div style={{ y: contentY, opacity: contentOpacity }}>
