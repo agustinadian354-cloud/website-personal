@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { Container } from '../design-system/Container'
-import { AuroraBackground } from '../components/AuroraBackground'
+import { VideoBackground } from '../components/VideoBackground'
 import { GrainOverlay } from '../components/GrainOverlay'
 import { SplitText } from '../components/SplitText'
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion'
@@ -27,7 +27,7 @@ export function Hero() {
       className="relative flex min-h-[100svh] items-center overflow-hidden bg-bg"
     >
       <motion.div style={{ y: bgY }} className="absolute inset-0">
-        <AuroraBackground />
+        <VideoBackground src="/media/reel.mp4" />
       </motion.div>
       <GrainOverlay />
 
@@ -40,45 +40,45 @@ export function Hero() {
             className="mb-6 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-accent"
           >
             <span className="h-px w-8 bg-accent" />
-            Product &amp; Software Designer
+            Cinematic AI Ads Director
           </motion.p>
 
           <h1 className="max-w-5xl text-[length:var(--text-display)] leading-[0.95] font-medium tracking-tight text-text">
-            <SplitText text="Membangun pengalaman digital yang" delay={0.15} />{' '}
-            <SplitText text="terasa hidup." delay={0.5} className="text-text-muted italic" />
+            <SplitText text="Crafting ads that" delay={0.15} />{' '}
+            <SplitText text="convert." delay={0.45} className="text-accent italic" />
           </h1>
 
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.1, ease: EASE_PREMIUM }}
+            transition={{ duration: 0.8, delay: 1.0, ease: EASE_PREMIUM }}
             className="mt-8 max-w-xl text-lg text-text-muted"
           >
-            Saya Agustina Dian — merancang dan membangun produk dengan detail,
-            gerakan, dan hierarki yang intentional. Bukan sekadar berfungsi,
-            tapi terasa premium.
+            I'm Dian — I direct AI-generated video ads with a cinematic eye.
+            Every frame is built for one job: stop the scroll, hold
+            attention, and drive the click.
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.3, ease: EASE_PREMIUM }}
+            transition={{ duration: 0.8, delay: 1.2, ease: EASE_PREMIUM }}
             className="mt-10 flex items-center gap-4"
           >
             <a
-              href="#work"
+              href="#contact"
               className="group inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-medium text-bg transition-transform duration-300 hover:scale-[1.03]"
             >
-              Lihat karya
+              Work with me
               <span className="transition-transform duration-300 group-hover:translate-x-1">
                 →
               </span>
             </a>
             <a
-              href="#contact"
+              href="#about"
               className="text-sm text-text-muted underline decoration-[var(--color-border-strong)] underline-offset-4 transition-colors duration-300 hover:text-text"
             >
-              Hubungi saya
+              See my approach
             </a>
           </motion.div>
         </Container>

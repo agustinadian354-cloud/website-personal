@@ -4,12 +4,10 @@ import { Eyebrow } from '../design-system/Eyebrow'
 import { Reveal } from '../design-system/Reveal'
 
 const SKILLS = [
-  'Product Design',
-  'Design Systems',
-  'Motion Design',
-  'Frontend Engineering',
-  'Prototyping',
-  'Brand Identity',
+  'AI Video Generation',
+  'Cinematic Direction',
+  'Ad Storytelling',
+  'Performance Editing',
 ]
 
 export function About() {
@@ -21,7 +19,7 @@ export function About() {
             <Reveal>
               <Eyebrow>About</Eyebrow>
               <h2 className="mt-5 text-[length:var(--text-2xl)] leading-[1.05] tracking-tight text-text">
-                Desain adalah cara berpikir, bukan sekadar tampilan.
+                Direction is the difference between AI video and an ad.
               </h2>
             </Reveal>
           </div>
@@ -29,16 +27,16 @@ export function About() {
           <div className="md:col-span-6 md:col-start-7">
             <Reveal index={1}>
               <p className="text-lg leading-relaxed text-text-muted">
-                Saya bekerja di persimpangan desain dan rekayasa — membangun
-                sistem yang membuat tim bergerak cepat tanpa mengorbankan
-                kualitas. Setiap detail, dari kurva easing hingga skala
-                tipografi, dipertimbangkan sebagai bagian dari satu bahasa
-                visual yang koheren.
+                I'm Dian, working under the name Ads by Dian. I direct
+                AI-generated video ads with a cinematic eye — pacing,
+                framing, and sound treated the same way they would be on a
+                real set. The goal is never "impressive AI footage." It's an
+                ad that converts.
               </p>
             </Reveal>
 
             <Reveal index={2} className="mt-10">
-              <ul className="grid grid-cols-2 gap-x-6 gap-y-4 sm:grid-cols-3">
+              <ul className="grid grid-cols-2 gap-x-6 gap-y-4 sm:grid-cols-2">
                 {SKILLS.map((skill) => (
                   <li
                     key={skill}

@@ -38,7 +38,7 @@ export function Nav() {
         style={{ transitionTimingFunction: 'var(--ease-premium)' }}
       >
         <a href="#top" className="font-display text-sm tracking-tight text-text">
-          Agustina Dian
+          Ads by Dian
         </a>
         <ul className="hidden gap-8 md:flex">
           {LINKS.map((link) => (
